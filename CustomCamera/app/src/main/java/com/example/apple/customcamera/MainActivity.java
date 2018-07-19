@@ -305,7 +305,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void releaseCamera(){
         if (mCamera != null){
+            mCamera.stopPreview();
             mCamera.release();        // release the camera for other applications
+            mCamera.setFaceDetectionListener(null);
             mCamera = null;
         }
     }
@@ -453,7 +455,7 @@ public class MainActivity extends AppCompatActivity {
             // Surface will be destroyed when we return, so stop the preview.
             if (mCamera != null) {
                 // Call stopPreview() to stop updating the preview surface.
-                mCamera.stopPreview();
+               
             }
         }
 
